@@ -9,10 +9,15 @@ import java.util.List;
 public class UserProfileRespone {
     private Profile profile;
     private Contract contract;
-    private List<Education> educationList;
-    private List<Experience> experienceList;
-    private List<UserSkill> userSkillList;
-    private List<UserInterests> userInterestsList;
-    private List<Guild> guildList;
+    private List<Education> education;
+    private List<Experience> experience;
+    private List<UserSkill> skills;
+    private List<UserInterests> interests;
+    private List<Guild> guilds;
 
+
+//    public UserProfileRespone(Profile profile, Contract contract) {
+//        this.profile = profile;
+//        this.contract = contract;
+//    }
 }

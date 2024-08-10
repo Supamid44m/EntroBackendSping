@@ -10,6 +10,7 @@ import java.util.List;
 public class User {
 
     private List<UserRespone> users = new ArrayList<>();
+    private MockData mockData = new MockData();
 
     @GetMapping
     public List<UserRespone> getUser() {
@@ -30,5 +31,17 @@ public class User {
     public UserRespone postUser(@RequestBody UserRespone user) {
         users.add(user);
         return user;
+    }
+
+    @GetMapping("mockdata")
+    public UserProfileRespone getMockData() {
+        return mockData.getUserProfileRespone();
+    }
+
+    @PutMapping()
+    @RequestMapping("/mockdata/update")
+    public MockData putMockData(@RequestBody MockData updatedMockData) {
+        this.mockData = updatedMockData;
+        return mockData;
     }
 }
