@@ -18,7 +18,7 @@ public class User {
     }
 
     @GetMapping("/test")
-    public UserRespone test(){
+    public UserRespone test() {
         UserRespone user = new UserRespone();
         user.setUserName("test");
         user.setFirstName("test");
@@ -40,8 +40,14 @@ public class User {
 
     @PutMapping()
     @RequestMapping("/mockdata/update")
-    public MockData putMockData(@RequestBody MockData updatedMockData) {
-        this.mockData = updatedMockData;
-        return mockData;
+    public UserProfileRespone putMockData(@RequestBody UserProfileRespone updatedMockData) {
+        this.mockData.getUserProfileRespone().setProfile(updatedMockData.getProfile());
+        this.mockData.getUserProfileRespone().setContract(updatedMockData.getContract());
+        this.mockData.getUserProfileRespone().setEducation(updatedMockData.getEducation());
+        this.mockData.getUserProfileRespone().setExperience(updatedMockData.getExperience());
+        this.mockData.getUserProfileRespone().setSkills(updatedMockData.getSkills());
+        this.mockData.getUserProfileRespone().setInterests(updatedMockData.getInterests());
+        this.mockData.getUserProfileRespone().setGuilds(updatedMockData.getGuilds());
+        return mockData.getUserProfileRespone();
     }
 }
