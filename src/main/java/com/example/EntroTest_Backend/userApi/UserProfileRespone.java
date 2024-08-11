@@ -8,7 +8,7 @@ import java.util.List;
 @Data
 public class UserProfileRespone {
     private Profile profile;
-    private Contract contract;
+    private Contact contact;
     private List<Education> education;
     private List<Experience> experience;
     private List<UserSkill> skills;

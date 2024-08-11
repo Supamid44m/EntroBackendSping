@@ -11,6 +11,7 @@ public class User {
 
     private List<UserRespone> users = new ArrayList<>();
     private MockData mockData = new MockData();
+//    private List<MockData> mockDataList = new ArrayList<>();
 
     @GetMapping
     public List<UserRespone> getUser() {
@@ -34,15 +35,17 @@ public class User {
     }
 
     @GetMapping("mockdata")
-    public UserProfileRespone getMockData() {
-        return mockData.getUserProfileRespone();
+    public List<UserProfileRespone> getMockData() {
+        List<UserProfileRespone> mockDataList = new ArrayList<>();
+        mockDataList.add(mockData.getUserProfileRespone());
+        return mockDataList;
     }
 
     @PutMapping()
     @RequestMapping("/mockdata/update")
     public UserProfileRespone putMockData(@RequestBody UserProfileRespone updatedMockData) {
         this.mockData.getUserProfileRespone().setProfile(updatedMockData.getProfile());
-        this.mockData.getUserProfileRespone().setContract(updatedMockData.getContract());
+        this.mockData.getUserProfileRespone().setContact(updatedMockData.getContact());
         this.mockData.getUserProfileRespone().setEducation(updatedMockData.getEducation());
         this.mockData.getUserProfileRespone().setExperience(updatedMockData.getExperience());
         this.mockData.getUserProfileRespone().setSkills(updatedMockData.getSkills());

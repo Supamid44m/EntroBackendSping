@@ -11,7 +11,7 @@ import java.util.List;
 @Data
 public class MockData {
     private Profile profile = new Profile();
-    private Contract contract = new Contract();
+    private Contact contact = new Contact();
     private Education education = new Education();
     private List<Education> educationList = new ArrayList<>();
     private List<Experience> experienceList = new ArrayList<>();
@@ -27,7 +27,7 @@ public class MockData {
 
     public MockData() {
         this.setProfileData();
-        this.setContractData();
+        this.setContactData();
         this.setEducationData();
         this.setExperienceData();
         this.setUserSkillData();
@@ -50,15 +50,15 @@ public class MockData {
 
     }
 
-    public void setContractData() {
-        contract.setAddress("Address");
-        contract.setSubDistrict("SubDistrict");
-        contract.setDistrict("District");
-        contract.setProvince("Los Angeles");
-        contract.setPostalCode("1234");
-        contract.setFacebook("Test");
-        contract.setLine("Test");
-        contract.setInstagram("Test");
+    public void setContactData() {
+        contact.setAddress("Address");
+        contact.setSubDistrict("SubDistrict");
+        contact.setDistrict("District");
+        contact.setProvince("Los Angeles");
+        contact.setPostalCode("1234");
+        contact.setFacebook("Test");
+        contact.setLine("Test");
+        contact.setInstagram("Test");
     }
 
     public void setEducationData() {
@@ -95,7 +95,7 @@ public class MockData {
 
     public void setUserProfileResponeData() {
         this.userProfileRespone.setProfile(profile);
-        this.userProfileRespone.setContract(contract);
+        this.userProfileRespone.setContact(contact);
         this.userProfileRespone.setEducation(educationList);
         this.userProfileRespone.setExperience(experienceList);
         this.userProfileRespone.setSkills(userSkillList);
