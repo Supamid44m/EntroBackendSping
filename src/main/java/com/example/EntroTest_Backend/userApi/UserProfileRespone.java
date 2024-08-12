@@ -11,9 +11,9 @@ public class UserProfileRespone {
     private Contact contact;
     private List<Education> education;
     private List<Experience> experience;
-    private List<UserSkill> skills;
+    private List<UserSkill> skill;
     private List<UserInterests> interests;
-    private List<Guild> guilds;
+    private List<Guild> guild;
 
 
 //    public UserProfileRespone(Profile profile, Contract contract) {

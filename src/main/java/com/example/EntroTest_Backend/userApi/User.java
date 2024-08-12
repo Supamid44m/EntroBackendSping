@@ -1,5 +1,7 @@
 package com.example.EntroTest_Backend.userApi;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -43,14 +45,18 @@ public class User {
 
     @PutMapping()
     @RequestMapping("/mockdata/update")
-    public UserProfileRespone putMockData(@RequestBody UserProfileRespone updatedMockData) {
-        this.mockData.getUserProfileRespone().setProfile(updatedMockData.getProfile());
-        this.mockData.getUserProfileRespone().setContact(updatedMockData.getContact());
-        this.mockData.getUserProfileRespone().setEducation(updatedMockData.getEducation());
-        this.mockData.getUserProfileRespone().setExperience(updatedMockData.getExperience());
-        this.mockData.getUserProfileRespone().setSkills(updatedMockData.getSkills());
-        this.mockData.getUserProfileRespone().setInterests(updatedMockData.getInterests());
-        this.mockData.getUserProfileRespone().setGuilds(updatedMockData.getGuilds());
-        return mockData.getUserProfileRespone();
+    public ResponseEntity<UserProfileRespone> putMockData(@RequestBody UserProfileRespone updatedMockData) {
+        try {
+            this.mockData.getUserProfileRespone().setProfile(updatedMockData.getProfile());
+            this.mockData.getUserProfileRespone().setContact(updatedMockData.getContact());
+            this.mockData.getUserProfileRespone().setEducation(updatedMockData.getEducation());
+            this.mockData.getUserProfileRespone().setExperience(updatedMockData.getExperience());
+            this.mockData.getUserProfileRespone().setSkill(updatedMockData.getSkill());
+            this.mockData.getUserProfileRespone().setInterests(updatedMockData.getInterests());
+            this.mockData.getUserProfileRespone().setGuild(updatedMockData.getGuild());
+            return new ResponseEntity<>(mockData.getUserProfileRespone(), HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 }

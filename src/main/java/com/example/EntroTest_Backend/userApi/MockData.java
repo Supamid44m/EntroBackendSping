@@ -1,28 +1,22 @@
 package com.example.EntroTest_Backend.userApi;
 
-
 import lombok.Data;
-import lombok.Getter;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Random;
 
 @Data
 public class MockData {
     private Profile profile = new Profile();
     private Contact contact = new Contact();
-    private Education education = new Education();
     private List<Education> educationList = new ArrayList<>();
     private List<Experience> experienceList = new ArrayList<>();
     private List<UserSkill> userSkillList = new ArrayList<>();
     private List<UserInterests> userInterestsList = new ArrayList<>();
     private List<Guild> guildList = new ArrayList<>();
 
-    private Experience experience = new Experience();
-    private UserSkill userSkill = new UserSkill();
-    private UserInterests userInterests = new UserInterests();
-    private Guild guild = new Guild();
     private UserProfileRespone userProfileRespone = new UserProfileRespone();
 
     public MockData() {
@@ -33,10 +27,8 @@ public class MockData {
         this.setUserSkillData();
         this.setUserInterestsData();
         this.setGuildData();
-        this.setListData();
         this.setUserProfileResponeData();
     }
-
 
     public void setProfileData() {
         profile.setFirstName("John");
@@ -47,7 +39,6 @@ public class MockData {
         profile.setNationality("Thailand");
         profile.setStartDate(new Date());
         profile.setTelephoneNumber("0631156944");
-
     }
 
     public void setContactData() {
@@ -62,35 +53,48 @@ public class MockData {
     }
 
     public void setEducationData() {
-        education.setEducationDate(new Date());
-        education.setUniversityName("University Name");
+        for (int i = 1; i <= 3; i++) {
+            Education education = new Education();
+            education.setEducationDate("Year" + i);
+            education.setUniversityName("University Name " + i);
+            educationList.add(education);
+        }
     }
 
     public void setExperienceData() {
-        experience.setCompanyName("Google");
-        experience.setPosition("Developer");
+        for (int i = 1; i <= 3; i++) {
+            Experience experience = new Experience();
+            experience.setCompanyName("Company " + i);
+            experience.setPosition("Position " + i);
+            experienceList.add(experience);
+        }
     }
 
     public void setUserSkillData() {
-        userSkill.setName("python");
-        userSkill.setLevel(10);
+        Random rand = new Random();
+        for (int i = 1; i <= 3; i++) {
+            int randomSkillLevel = rand.nextInt(10);
+            UserSkill userSkill = new UserSkill();
+            userSkill.setName("Skill " + i);
+            userSkill.setLevel(randomSkillLevel);
+            userSkillList.add(userSkill);
+        }
     }
 
     public void setUserInterestsData() {
-        userInterests.setName("Java");
-        userInterests.setName("SkateBoard");
+        for (int i = 1; i <= 3; i++) {
+            UserInterests userInterests = new UserInterests();
+            userInterests.setName("Interest " + i);
+            userInterestsList.add(userInterests);
+        }
     }
 
     public void setGuildData() {
-        guild.setName("Java");
-    }
-
-    public void setListData() {
-        this.educationList.add(education);
-        this.experienceList.add(experience);
-        this.userSkillList.add(userSkill);
-        this.userInterestsList.add(userInterests);
-        this.guildList.add(guild);
+        for (int i = 1; i <= 3; i++) {
+            Guild guild = new Guild();
+            guild.setName("Guild " + i);
+            guildList.add(guild);
+        }
     }
 
     public void setUserProfileResponeData() {
@@ -98,10 +102,8 @@ public class MockData {
         this.userProfileRespone.setContact(contact);
         this.userProfileRespone.setEducation(educationList);
         this.userProfileRespone.setExperience(experienceList);
-        this.userProfileRespone.setSkills(userSkillList);
+        this.userProfileRespone.setSkill(userSkillList);
         this.userProfileRespone.setInterests(userInterestsList);
-        this.userProfileRespone.setGuilds(guildList);
+        this.userProfileRespone.setGuild(guildList);
     }
-
-
 }
